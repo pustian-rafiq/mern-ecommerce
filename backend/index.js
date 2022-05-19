@@ -7,6 +7,12 @@ const mongoose = require('mongoose')
 
 env.config();
 
+//Import routes
+const authRoutes = require('./routes/userRoutes')
+
+
+
+
 //Configure middleware
 app.use(express.urlencoded({ extended: true })),
     app.use(express.json()),
@@ -16,12 +22,17 @@ app.use(express.urlencoded({ extended: true })),
     // bodyParser.json()
     //app.use(bodyParser.urlencoded({ extended: false }))
 
-    app.post('/data', (req, res, next) => {
-        console.log("jj", req.body)
-        res.status(200).json({
-            message: req.body,
-        })
+//Call the api
+//Api routes must be call in the bottom section but before server creating
+app.use('/auth',authRoutes);
+
+
+app.post('/data', (req, res, next) => {
+    console.log("jj", req.body)
+    res.status(200).json({
+        message: req.body,
     })
+})
 app.get('/', (req, res, next) => {
     console.log("jj")
     res.status(200).json({
