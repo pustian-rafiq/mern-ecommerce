@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../../models/user');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -6,7 +6,7 @@ exports.signupPostController = (req,res) => {
     User.findOne({email: req.body.email}).exec(async (error, user) => {
         if(user) 
             return res.status(400).json({
-                error: "User alredy exists"
+                error: "Admin alredy exists"
             });
 
         const {firstName, lastName,email,password} =req.body;
@@ -17,6 +17,7 @@ exports.signupPostController = (req,res) => {
             email,
             hash_password,
             username: Math.random().toString(),
+            role:'admin'
         });
 
         newUser.save((error,data) => {
@@ -29,8 +30,8 @@ exports.signupPostController = (req,res) => {
             if (data) {
                 
                 return res.status(201).json({
-                    message:"User has created successfully"
-                   });
+                 message:"Admin has been created successfully"
+                });
               }
             // if (user) {
             //     const token = generateJwtToken(user._id, user.role);
@@ -68,7 +69,7 @@ exports.loginPostController = (req,res) => {
                 })
             }
         }else{
-            return res.status().json({
+            return res.status(400).json({
                 message: "Something went wrong"
             })
         }

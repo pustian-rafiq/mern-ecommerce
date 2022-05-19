@@ -8,7 +8,8 @@ const mongoose = require('mongoose')
 env.config();
 
 //Import routes
-const authRoutes = require('./routes/userRoutes')
+const authRoute = require('./routes/userRoutes')
+const adminRoute = require('./routes/admin/adminRoutes')
 
 
 
@@ -24,7 +25,8 @@ app.use(express.urlencoded({ extended: true })),
 
 //Call the api
 //Api routes must be call in the bottom section but before server creating
-app.use('/auth',authRoutes);
+app.use('/auth',authRoute);
+app.use('/auth/admin',adminRoute);
 
 
 app.post('/data', (req, res, next) => {
