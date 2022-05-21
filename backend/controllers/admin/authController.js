@@ -54,6 +54,8 @@ exports.loginPostController = (req,res) => {
             return res.status(400).json(error)
         if(user){
             if(user.authenticate(req.body.password)){
+
+            console.log("wrong pass")
                 const token = jwt.sign({_id: user._id}, process.env.SECRET_KEY,{expiresIn:'2d'});
                 const {_id,firstName,lastName,email,role,fullName} = user;
                 res.status(200).json({
@@ -67,10 +69,14 @@ exports.loginPostController = (req,res) => {
                     role
                   }
                 })
+            }else{
+                return res.status(400).json({
+                    message: "Admin email or password doesn't match "
+                })
             }
         }else{
             return res.status(400).json({
-                message: "Something went wrong"
+                message: "Admin email or password doesn't match"
             })
         }
     })

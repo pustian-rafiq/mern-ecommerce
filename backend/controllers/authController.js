@@ -66,10 +66,14 @@ exports.loginPostController = (req,res) => {
                     role
                   }
                 })
+            }else{
+                return res.status(400).json({
+                    message: "User email or password doesn't match "
+                })
             }
         }else{
-            return res.status().json({
-                message: "Something went wrong"
+            return res.status(400).json({
+                message: "User email or password doesn't match "
             })
         }
     })
