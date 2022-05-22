@@ -1,9 +1,12 @@
+import Layout from "../../components/Layout/Index"
 
 
 const Signin = () => {
 
     return(
-        <div>Signin</div>
+       <Layout>
+           
+       </Layout>
     )
 }
 

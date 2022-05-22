@@ -1,8 +1,11 @@
+import Layout from "../../components/Layout/Index"
 
 const Signup = () => {
 
     return(
-        <div>Signup</div>
+        <Layout>
+
+        </Layout>
     )
 }
 
