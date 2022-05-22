@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 function Header() {
   return (
     <>
@@ -20,7 +21,14 @@ function Header() {
               </NavDropdown> */}
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">Login</Nav.Link>
+
+
+              <Nav.Link href="">
+                <NavLink style={{color:'white', textDecoration:'none'}} to="/signup">Signup</NavLink>
+              </Nav.Link>
+              <Nav.Link href="">
+                <NavLink to="/signin" style={{color:'white', textDecoration:'none'}}>Login</NavLink>
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

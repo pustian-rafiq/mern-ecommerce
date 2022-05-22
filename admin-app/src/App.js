@@ -1,13 +1,21 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Layout from './components/Layout/Index';
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from './containers/Home/Home';
+import Signup from './containers/Auth/Signup';
+import Signin from './containers/Auth/SIgnin';
 
 function App() {
   return (
     <>
-    <Layout>
-      <h1>Welcome</h1>
-    </Layout>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='signup' element={<Signup/>} />
+      <Route path='signin' element={<Signin/>} />
+    </Routes>
     </>
   );
 }
