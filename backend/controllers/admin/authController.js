@@ -56,7 +56,7 @@ exports.loginPostController = (req,res) => {
             if(user.authenticate(req.body.password)){
 
             console.log("wrong pass")
-                const token = jwt.sign({_id: user._id}, process.env.SECRET_KEY,{expiresIn:'2d'});
+                const token = jwt.sign({_id: user._id,role:user.role}, process.env.SECRET_KEY,{expiresIn:'2d'});
                 const {_id,firstName,lastName,email,role,fullName} = user;
                 res.status(200).json({
                   token,
