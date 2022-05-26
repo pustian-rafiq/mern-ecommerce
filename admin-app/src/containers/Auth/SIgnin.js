@@ -1,4 +1,5 @@
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap"
+import { NavLink } from "react-router-dom"
 import Layout from "../../components/Layout/Index"
 import Input from "../../components/ui/Input"
 
@@ -11,6 +12,7 @@ const Signin = () => {
                 <Row>
                     <Col md={{ span: 6, offset: 3 }}>
                         <Card>
+                        <p style={{ textAlign: 'center', background: '#000', color: '#fff', fontSize: '26px', padding: '10px 20px' }}>Signin Page</p>
                             <Card.Body>
                                 <Form>
                                     <Input
@@ -29,9 +31,12 @@ const Signin = () => {
                                         onChange={() => { }}
                                     />
 
-                                    <Button variant="primary" type="submit">
-                                        Signin
-                                    </Button>
+                                    <div style={{ display: 'flex',alignItems:'center',alignContent:'center' }}>
+                                        <Button variant="primary" type="submit">
+                                            Signin
+                                        </Button>
+                                        <p style={{marginLeft:'10px'}}>Already have you any account? <NavLink to="/signup">Signup</NavLink></p>
+                                    </div>
                                 </Form>
                             </Card.Body>
                         </Card>
