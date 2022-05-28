@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const {signupPostController, loginPostController} = require('../controllers/authController')
-const verify = require('../middleware/verifyToken')
+const verify = require('../middleware/verifyToken');
+const { isRequestValidated, signupRequestValidation, signinRequestValidation } = require('../validators/authValidation');
 
-router.post('/signup',signupPostController)
-router.post('/login',loginPostController)
+//passing two validation middleware
+router.post('/signup',signupRequestValidation,isRequestValidated ,signupPostController)
+router.post('/login',signinRequestValidation,isRequestValidated,loginPostController)
 
 router.post('/profile',verify, (req,res)=>{
     res.status(200).json({

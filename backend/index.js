@@ -10,6 +10,7 @@ env.config();
 //Import routes
 const authRoute = require('./routes/userRoutes')
 const adminRoute = require('./routes/admin/adminRoutes')
+const categoryRoute = require('./routes/categoryRoutes')
 
 
 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true })),
 //Api routes must be call in the bottom section but before server creating
 app.use('/auth',authRoute);
 app.use('/auth/admin',adminRoute);
+app.use('/auth',categoryRoute);
 
 
 app.post('/data', (req, res, next) => {
