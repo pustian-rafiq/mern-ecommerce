@@ -8,10 +8,10 @@ const mongoose = require('mongoose')
 env.config();
 
 //Import routes
-const authRoute = require('./routes/userRoutes')
-const adminRoute = require('./routes/admin/adminRoutes')
-const categoryRoute = require('./routes/categoryRoutes')
-const productRoute = require('./routes/productRoutes')
+const authRoute = require('./src/routes/userRoutes')
+const adminRoute = require('./src/routes/admin/adminRoutes')
+const categoryRoute = require('./src/routes/categoryRoutes')
+const productRoute = require('./src/routes/productRoutes')
 
 
 
