@@ -1,10 +1,11 @@
+import { Card, Col, Container, Form, Row } from "react-bootstrap"
 import Layout from "../../components/Layout/Index"
 
 const Signup = () => {
 
-    return(
+    return (
         <Layout>
-
+             
         </Layout>
     )
 }
