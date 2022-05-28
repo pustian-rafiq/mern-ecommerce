@@ -11,6 +11,7 @@ env.config();
 const authRoute = require('./routes/userRoutes')
 const adminRoute = require('./routes/admin/adminRoutes')
 const categoryRoute = require('./routes/categoryRoutes')
+const productRoute = require('./routes/productRoutes')
 
 
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true })),
 app.use('/auth',authRoute);
 app.use('/auth/admin',adminRoute);
 app.use('/auth',categoryRoute);
+app.use('/auth',productRoute);
 
 
 app.post('/data', (req, res, next) => {
