@@ -5,8 +5,8 @@ const verify = require('../middleware/verifyToken');
 
 
 
-router.post('/category/create',verify,adminMiddleware,addCategoryController);
-router.get('/category/all',getAllCategories);
+router.post('/create',verify,adminMiddleware,addCategoryController);
+router.get('/all',getAllCategories);
 
 
  

@@ -12,6 +12,7 @@ const authRoute = require('./src/routes/userRoutes')
 const adminRoute = require('./src/routes/admin/adminRoutes')
 const categoryRoute = require('./src/routes/categoryRoutes')
 const productRoute = require('./src/routes/productRoutes')
+const cartRoute = require('./src/routes/cartRoutes')
 
 
 
@@ -29,8 +30,9 @@ app.use(express.urlencoded({ extended: true })),
 //Api routes must be call in the bottom section but before server creating
 app.use('/auth',authRoute);
 app.use('/auth/admin',adminRoute);
-app.use('/auth',categoryRoute);
-app.use('/auth',productRoute);
+app.use('/category',categoryRoute);
+app.use('/product',productRoute);
+app.use('/cart',cartRoute);
 
 
 app.post('/data', (req, res, next) => {

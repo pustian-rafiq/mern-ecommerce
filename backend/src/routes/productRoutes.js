@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
   const upload = multer({storage})
 
   // For uploading single file use single and for multiple file we use array
-router.post('/product/create',verify, upload.array('productPicture') ,adminMiddleware,createProductController);
+router.post('/create',verify, upload.array('productPicture') ,adminMiddleware,createProductController);
 // router.get('/category/all',getAllCategories);
 
 
