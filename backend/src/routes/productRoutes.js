@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createProductController } = require('../controllers/productController');
+const { createProductController, getProductsController } = require('../controllers/productController');
 const { adminMiddleware } = require('../middleware/verifyAuthentication');
 const verify = require('../middleware/verifyToken');
 const multer = require('multer')
@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 
   // For uploading single file use single and for multiple file we use array
 router.post('/create',verify, upload.array('productPicture') ,adminMiddleware,createProductController);
-// router.get('/category/all',getAllCategories);
+router.get('/all',verify,adminMiddleware, getProductsController);
 
 
 

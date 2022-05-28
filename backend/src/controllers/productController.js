@@ -37,3 +37,20 @@ exports.createProductController = (req,res) => {
         }
       });
 }
+
+//Get all products
+exports.getProductsController = async (req,res) => {
+    console.log("get",req.user.role)
+    if(req.user.role === "admin"){
+        try{
+            const products =await Product.find()
+            res.status(200).json(products)
+        }catch(err){
+            res.status(403).json(err)
+        }
+       
+    }else{
+        res.status(403).json("You are not allowed!")
+    }
+  
+}
