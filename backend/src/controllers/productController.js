@@ -44,6 +44,7 @@ exports.getProductsController = async (req,res) => {
     if(req.user.role === "admin"){
         try{
             const products =await Product.find()
+            console.log("all products", products)
             res.status(200).json(products)
         }catch(err){
             res.status(403).json(err)
